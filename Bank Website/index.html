@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Online Banking System</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="header">
+        <img src="logo.jpg" alt="Logo" class="logo">
+        <h1></h1>
+    </div>
+
+    <div id="imageContainer"></div>
+    <p></p>
+
+    <button id="loginButton">Login</button>
+    <button id="signupButton">Signup</button>
+    <button id="aboutUsButton">About Us</button>
+    <button id="contactUsButton">Contact Us</button>
+    <div class="dropdown">
+        <button id="announcementButton">NEWS</button>
+        <div class="dropdown-content">
+            <a href="#"> - Introducing Nexus Financial Bank's latest  competitive interest rates of 27%</a>
+            <a href="#"> - Changes to Nexus operating hours during the upcoming holiday season</a>
+            <a href="#"> - limited-time promotional rates on loans and credit card issuance </a>
+
+        </div>
+    </div>
+    <div id="loginForm" style="display: none;">
+        <input type="text" id="usernameInput" placeholder="Username">
+        <input type="password" id="passwordInput" placeholder="Password">
+        <button id="submitLoginButton">Submit</button>
+    </div>
+
+    <script>
+        const loginButton = document.getElementById('loginButton');
+        const signupButton = document.getElementById('signupButton');
+        const loginForm = document.getElementById('loginForm');
+        const contactUsButton = document.getElementById('contactUsButton');
+        const announcementButton = document.getElementById('announcementButton');
+     
+
+        announcementButton.addEventListener('click', () => {
+            // Toggle the visibility of the dropdown menu
+            const dropdownContent = document.querySelector('.dropdown-content');
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', (event) => {
+            const dropdownContent = document.querySelector('.dropdown-content');
+            if (!event.target.closest('.dropdown') && !event.target.closest('.dropdown-content')) {
+                // Click occurred outside the dropdown or dropdown content, hide the dropdown content
+                dropdownContent.style.display = 'none';
+            }
+        });
+        
+
+        loginButton.addEventListener('click', () => {
+            loginForm.style.display = 'block';
+        });
+
+        signupButton.addEventListener('click', () => {
+            // Redirect to the signup page
+            window.location.href = "signuppage.html";
+           
+        });
+
+        contactUsButton.addEventListener('click', () => {
+            // Redirect to the contact us page
+            window.location.href = "contactuspage.html";
+        });
+
+    
+
+        const submitLoginButton = document.getElementById('submitLoginButton');
+        submitLoginButton.addEventListener('click', () => {
+            const username = document.getElementById('usernameInput').value;
+            const password = document.getElementById('passwordInput').value;
+
+
+            // Add your logic here for handling the login process
+            // For now, let's redirect to the home page
+            if (username && password) {
+                // Check for keywords in the username
+                if (username.toLowerCase().includes("banker")) {
+                    // Redirect to the banker home page
+                    window.location.href = "bankerhome.html";   
+                } else if (username.toLowerCase().includes("admin")) {
+                    // Redirect to the admin home page
+                    window.location.href = "Admin/Admin.html";
+                } else if (username.toLowerCase().includes("client")) {
+                    // Redirect to the client home page
+                    window.location.href = "clienthome.html";
+                } else {
+                    alert("Please enter a valid username and password");
+                    // Redirect to a default home page if no keyword matches
+                    window.location.href = "HtmlPage.html";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
