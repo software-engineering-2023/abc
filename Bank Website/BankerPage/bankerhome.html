@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banker</title>
+    <link rel="stylesheet" href="bankerstyle.css">
+    <link rel="icon" href="favicon-32x32.png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="/Images/logo.jpg" alt="Logo" class="logo">
+            <h1>Welcome, Banker!</h1>
+        </div>
+    </header>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#" onclick="gotomain()">Home</a></li>
+            <li><a href="#">Accounts</a></li>
+            <li><a href="#" onclick="viewNotifications()">Notifications </a></li>
+            <li><a href="#" onclick="showBankNews()">News</a></li>
+            <li><a href="#" onclick="showFAQ()">FAQ for Employees</a></li>
+            <li><a href="HtmlPage.html">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <aside class="sidebar">
+            <ul>
+                <li class="sidebar-option">
+                    <h3>Customer Management</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="showCustomerTable()">Customer Information</a></li>
+                        <li><a href="#" onclick="closeExistingAccount()">Close Existing Account</a></li>
+                        <li><a href="#" onclick="openNewAccountForm()">Open New Account</a></li>
+                        <li><a href="#" id="transaction-history-link" onclick="showTransactionHistoryForm()">Transaction History</a></li>
+
+                        <li><a href="#" onclick="showLoanApprovalForm()">Loan Approval</a></li>
+
+
+                    </ul>
+                </li>
+                <li class="sidebar-option">
+                    <h3>Task Management</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="showTaskCreationForm()">Assign Task</a></li>
+                        <li><a href="#" onclick="viewPendingTasks()">View Pending Tasks</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-option">
+                    <h3>Reports</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="showReports()">Credit Card</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-option">
+                    <h3>Help and Support</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="viewReportForm()">Report technical issues to Admin</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <section id="dashboard-section">
+            <div class="user-profile">
+                <img src="/Images/abboud.jpg" alt="User Avatar">
+                <h2>Welcome, Banker!</h2>
+            </div>
+            <div class="pictures">
+                <img src="/Images/reviewissues.jpg" alt="Open Account" onclick="viewReports()">
+                <img src="/Images/creditcardapplication.jpg" alt="Loan Application" onclick="viewCreditCardApplications()">
+                <img src="/Images/adminsendnotification.jpg" alt="Credit Card Application" onclick="sendNotifications()">
+            </div>
+        </section>
+    </div>
+
+
+    <footer class="footer">
+        &copy; 2023 Nexus Financial Bank. All rights reserved.
+    </footer>
+</body>
+</html>

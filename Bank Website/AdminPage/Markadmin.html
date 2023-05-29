@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Banking System</title>
+    <link rel="stylesheet" href="adminstylemark.css">
+    <link rel="icon" href="favicon-32x32.png">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Nexus financial Bank</h1>
+        <img class="logo" src="/Images/logo.jpg" alt="Logo">
+    </header>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="HtmlPage.html">Logout</a></li>
+            <li><a href="#" onclick="gotomain()">Home</a></li>
+           
+        </ul>
+    </nav>
+
+    <div class="content">
+        <aside class="sidebar">
+            <ul class="sidebar-options">
+                <li class="sidebar-option">
+                    <h3>Account Requests</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="openAccount()">Opening Requests</a></li>
+                        <li><a href="#" onclick="closeAccount()">Closing Requests</a></li>
+
+                    </ul>
+           
+                <li class="sidebar-option">
+                    <h3>Credit Card</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="viewCreditCardApplications()">Card Applications</a></li>
+              
+                        <li><a href="#" onclick="LockCreditCard()">Lock credit card</a></li>
+                        <li><a href="#" onclick="UnlockCreditCard()">UnLock credit card</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="sidebar-option">
+                    <h3>Messaging</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="sendNotifications()">Send Notification</a></li>
+                        <li><a href="#" onclick="sendAnnouncements()">Send Announcements</a></li>
+                        <li><a href="#" onclick="viewReports()">Client Reports</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+
+
+
+
+
+        <section id="dashboard-section">
+            <div class="user-profile">
+                <img src="/Images/wegz.jpg" alt="User Avatar">
+                <h2>Welcome, Admin!</h2>
+            </div>
+            <div class="pictures">
+                <img src="/Images/notifications.jpg" alt="Open Account" onclick="viewReports()">
+                <img src="/Images/creditcardapplication.jpg" alt="Loan Application" onclick="viewCreditCardApplications()">
+                <img src="/Images/adminsendnotification.jpg" alt="Credit Card Application" onclick="sendNotifications()">
+            </div>
+        </section>
+                </div>
+
+
+                <footer class="footer">
+                    &copy; 2023 Nexus Financial Bank. All rights reserved.
+                </footer>
+
+</body>
+</html>

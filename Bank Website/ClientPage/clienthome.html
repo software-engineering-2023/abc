@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Banking System</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Nexus financial Bank</h1>
+        <img class="logo" src="/Images/logo.jpg" alt="Logo">
+        <link rel="stylesheet" href="clientstyle.css">
+        <link rel="icon" href="favicon-32x32.png">
+    </header>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#" onclick="gotomain()">Home</a></li>
+            <li><a href="#" onclick="contactus()">Contact Us</a></li>
+            <li><a href="#" onclick="showClientNews()">News</a></li>
+            <li><a href="#" onclick="aboutUs()">About Us</a></li>
+            <li><a href="HtmlPage.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <aside class="sidebar">
+            <ul class="sidebar-options">
+                <li class="sidebar-option">
+                    <h3>Transfer</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="moneyTransfer()">Send Money</a></li>
+                        <li><a href="#" onclick="billPayment()">Pay Bills</a></li>
+                        <li><a href="#" onclick="viewTransactions()">Transaction History</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-option">
+                    <h3>Loans</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="loanApplication()">Apply for Loan</a></li>
+                        <li><a href="#" onclick="viewLoans()">View active loans</a></li>
+                        <li><a href="#" onclick="viewpendingLoans()">View pending loans</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-option">
+                    <h3>Credit</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="checkpoints()">Check credit points</a></li>
+                        <li><a href="#" onclick="applyforcreditcard()">Apply for credit card</a></li>
+                        <li><a href="#" onclick="lockCreditCard()">Lock credit card</a></li>
+                        <li><a href="#" onclick="UnlockCreditCard()">UnLock credit card</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-option">
+                    <h3>Manage accounts</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="openAccount()">Open NFB account</a></li>
+                        <li><a href="#" onclick="closeAccount()">Close NFB account</a></li>
+                        <li><a href="#" onclick="viewAccount()">View NFB accounts</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-option">
+                    <h3>Messages</h3>
+                    <ul class="sub-menu">
+                        <li><a href="#" onclick="viewNotifications()">Notifications</a></li>
+                        <li><a href="#" onclick="viewAnnouncements()">Announcements</a></li>
+                        <li><a href="#" onclick="viewReportForm()">Report Issue</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <section id="dashboard-section">
+            <div class="user-profile">
+                <img src="/Images/avatar.jpg" alt="User Avatar">
+                <h2>Welcome, client!</h2>
+            </div>
+
+            <div class="account-balance">
+                <h3>Account Balance</h3>
+                <p>$10,000</p>
+            </div>
+            <div class="pics">
+                <img src="/Images/maketransactionog.jpg" alt="Open Account" onclick="moneyTransfer()">
+                <img src="/Images/applyforloanog.jpg" alt="Loan Application" onclick="loanApplication()">
+                <img src="/Images/applyforcreditcardog.jpg" alt="Credit Card Application" onclick="applyforcreditcard()">
+            </div>`;
+</div>
+
+
+
+
+    <footer class="footer">
+        &copy; 2023 Nexus Financial Bank. All rights reserved.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

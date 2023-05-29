@@ -1,0 +1,329 @@
+﻿
+    /* Global styles */
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    }
+    
+    header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    overflow: auto;
+    }
+    
+    h1 {
+    float: right;
+    margin-left: 10px;
+    }
+    
+    .logo {
+    float: left;
+    width: 110px; /* Adjust the width as needed /
+    height: 80px; / Adjust the height as needed */
+    }
+    
+    nav {
+    background-color: #6c5944; /* Brown */
+    color: #fff;
+    padding: 10px;
+    }
+    
+    nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+    
+    nav ul li {
+    margin-right: 20px;
+    }
+    
+    nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    }
+    
+    .content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    }
+    
+    .sidebar {
+    background-color: #ead9b8; /* Beige */
+    width: 200px;
+    padding: 20px;
+    }
+    
+    .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+    
+    .sidebar h3 {
+    margin: 0;
+    cursor: pointer;
+    }
+    
+    .sub-menu {
+    display: none;
+    padding-left: 10px;
+    margin-top: 10px;
+    }
+    
+    .sub-menu a {
+    text-decoration: none;
+    color: #4d3c2a; /* Dark Brown */
+    margin-bottom: 5px;
+    }
+    
+    .sidebar-option:hover .sub-menu {
+    display: block;
+    }
+    
+    #dashboard-section {
+    flex-grow: 1;
+    margin-left: 20px;
+    padding: 20px;
+    }
+    
+    .user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    }
+    
+    .user-profile img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+    }
+    
+    .report {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    }
+    
+    .report:hover {
+    background-color: #f0f0f0;
+    }
+    
+    .report p {
+    margin: 0;
+    line-height: 1.5;
+    }
+    
+    .report-reply {
+    margin-top: 10px;
+    display: none;
+    }
+    
+    .report-reply textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    }
+    
+    .report-reply button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    
+    .report-reply button:hover {
+    background-color: #45a049;
+    }
+    
+    #announcement-section {
+    margin-top: 20px;
+    }
+    
+    #announcement-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    }
+    
+    #announcement-list {
+    list-style-type: none;
+    padding: 0;
+    }
+    
+    #announcement-list p {
+    margin: 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    }
+    
+    #post-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+    
+    #post-button:hover {
+    background-color: #45a049;
+    }
+    
+    input[type="text"],
+    button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    }
+    
+    button {
+    background-color: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    }
+    
+    #notification-list {
+    margin-top: 20px;
+    }
+    
+    #notification-list p {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    }
+    
+    .credit-card-application {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    }
+    
+    .credit-card-application:hover {
+    background-color: #f0f0f0;
+    }
+    
+    .credit-card-application p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    }
+    
+    .credit-card-application button {
+    background-color: #4CAF50;
+    color: lightgray;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    }
+    
+    .credit-card-application button:hover {
+    background-color: #45a049;
+    }
+    
+    .credit-card-application button + button {
+    background-color: #f44336;
+    margin-left: 10px;
+    }
+    
+    .credit-card-application button + button:hover {
+    background-color: #d32f2f;
+    }
+    
+    .account-closing-request {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    }
+    
+    .account-closing-request:hover {
+    background-color: #f0f0f0;
+    }
+    
+    .account-closing-request p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    }
+    
+    .account-closing-request .buttons {
+    display: flex;
+    }
+    
+    .account-closing-request .buttons button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    }
+    
+    .account-closing-request .buttons button:hover {
+    background-color: #45a049;
+    }
+    
+    .account-closing-request .buttons button + button {
+    background-color: #f44336;
+    margin-left: 10px;
+    }
+    
+    .account-closing-request .buttons button + button:hover {
+    background-color: #d32f2f;
+    }
+    
+    
+    
+    
+    
