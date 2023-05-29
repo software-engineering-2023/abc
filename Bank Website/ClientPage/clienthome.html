@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Banking System</title>
+    <link rel="stylesheet" href="clientstyle.css">
 </head>
 <body>
     <header>
         <h1>Welcome to Nexus financial Bank</h1>
-        <img class="logo" src="/Images/logo.jpg" alt="Logo">
-        <link rel="stylesheet" href="clientstyle.css">
-        <link rel="icon" href="favicon-32x32.png">
+        <img class="logo" src="logo.jpg" alt="Logo">
     </header>
 
     <nav>
@@ -69,9 +68,833 @@
                 </li>
             </ul>
         </aside>
+
+        <script>
+            function showClientNews() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+    <div class="client-news">
+      <h2>Client News</h2>
+      <div class="news">
+        <h3>Important Announcement</h3>
+        <ul>
+          <li>Due to system maintenance, online banking services will be temporarily unavailable on June 1st, 2023.</li>
+          <li>We are pleased to announce the launch of our new mobile banking app. Download it now for a seamless banking experience.</li>
+        </ul>
+      </div>
+      <div class="news">
+        <h3>New Service Offerings</h3>
+        <ul>
+          <li>Introducing personalized investment portfolios for our esteemed clients. Speak to your account manager for more details.</li>
+          <li>Our latest premium credit card is now available, offering exclusive rewards and benefits. Apply now!</li>
+        </ul>
+      </div>
+      <div class="news">
+        <h3>Financial Education Workshop</h3>
+        <ul>
+          <li>Join us for a free financial education workshop on budgeting and saving, happening on June 15th, 2023. Limited seats available.</li>
+        </ul>
+      </div>
+    </div>`;
+            }
+
+
+            // Function to handle the click event
+            function openAccount() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                        <div class="user-profile">
+                            <img src="avatar.jpg" alt="User Avatar">
+                            <h2>Welcome, Client!</h2>
+                        </div>
+                        <div class="account-form">
+                            <h3>Open NFB Account</h3>
+                            <div class="section-header">NAME</div>
+                            <input type="text" placeholder="First Name" id="first-name">
+                            <input type="text" placeholder="Middle Name" id="middle-name">
+                            <input type="text" placeholder="Last Name" id="last-name">
+                            <div class="section-header">ADDRESS</div>
+                            <input type="text" placeholder="Country" id="country">
+                            <input type="text" placeholder="City" id="city">
+                            <div class="section-header">OTHER INFORMATION</div>
+                            <input type="email" placeholder="Email" id="email">
+                            <input type="text" placeholder="phone-number" id="phone-number">
+                            <input type="text" placeholder="Job Title" id="job-title">
+                            <input type="text" placeholder="Source of Income" id="source-of-income">
+                            <div class="section-header">ID</div>
+                            <input type="text" placeholder="Card ID" id="card-id">
+                            <input type="text" placeholder="Passport Number" id="passport-number">
+                            <input type="file" id="file-upload">
+                            <button onclick="submitAccount()">Submit</button>
+                        </div>`;
+            }
+            function billPayment() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+            <div class="user-profile">
+              <img src="avatar.jpg" alt="User Avatar">
+              <h2>Welcome, Client!</h2>
+            </div>
+            <div class="account-form">
+              <h3>Bill Payment</h3>
+              <div class="section-header">BILL TYPE</div>
+              <select id="bill-type">
+                <option value="electricity">Electricity</option>
+                <option value="gas">Gas</option>
+                <option value="water">Water</option>
+                <option value="installments">Installments</option>
+                <option value="credit-bill">Credit Bill</option>
+                <option value="telephone-bills">Telephone Bills</option>
+                <option value="other">Other</option>
+              </select>
+              <div class="section-header">PAYMENT METHOD</div>
+              <select id="payment-method" onchange="togglePaymentMethod()">
+                <option value="third-party">Third Party</option>
+                <option value="direct">Direct Payment</option>
+              </select>
+              <div id="third-party-section" style="display: none;">
+                <select id="third-party">
+                  <option value="fawry">Fawry</option>
+                  <option value="telda">Telda</option>
+                  <option value="vodafone-cash">Vodafone Cash</option>
+                </select>
+                <input type="text" placeholder="Third Party Confirmation Code" id="third-party-confirmation">
+                <input type="text" placeholder="Amount to Send" id="amount-to-send">
+              </div>
+              <div id="direct-payment-section">
+                <input type="text" placeholder="Bill Amount" id="bill-amount">
+              </div>
+              <button onclick="submitBillPayment()">Pay</button>
+            </div>`;
+            }
+
+            function togglePaymentMethod() {
+                var paymentMethod = document.getElementById("payment-method");
+                var thirdPartySection = document.getElementById("third-party-section");
+                var directPaymentSection = document.getElementById("direct-payment-section");
+
+                if (paymentMethod.value === "third-party") {
+                    thirdPartySection.style.display = "block";
+                    directPaymentSection.style.display = "none";
+                } else {
+                    thirdPartySection.style.display = "none";
+                    directPaymentSection.style.display = "block";
+                }
+            }
+            function submitBillPayment() {
+                var billAmount = document.getElementById("bill-amount").value;
+                var paymentMethod = document.getElementById("payment-method").value;
+
+                // Validate bill amount
+                if (billAmount === "") {
+                    alert("Please enter the bill amount.");
+                    return;
+                }
+
+                // Validate payment method
+                if (paymentMethod === "third-party") {
+                    var thirdParty = document.getElementById("third-party").value;
+                    var thirdPartyConfirmation = document.getElementById("third-party-confirmation").value;
+                    var amountToSend = document.getElementById("amount-to-send").value;
+
+                    // Validate third-party details
+                    if (thirdParty === "" || thirdPartyConfirmation === "" || amountToSend === "") {
+                        alert("Please fill in all the required fields for third-party payment.");
+                        return;
+                    }
+                }
+
+                // Prompt for OTP and display success message
+                var otp = prompt("Please enter the OTP for verification:");
+                if (otp === null || otp === "") {
+                    alert("Payment cancelled.");
+                } else {
+                    alert("Your bill payment of " + billAmount + " has been completed successfully.");
+                }
+            }
+
+
+
+
+
+            function loanApplication() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                        <div class="user-profile">
+                            <img src="avatar.jpg" alt="User Avatar">
+                            <h2>Welcome, Client!</h2>
+                        </div>
+                        <div class="account-form">
+                          <h3>Apply for Loan</h3>
+                    <div class="section-header">PERSONAL INFORMATION</div>
+                    <input type="text" placeholder="First Name" id="first-name">
+                    <input type="text" placeholder="Last Name" id="last-name">
+                    <input type="text" placeholder="Country" id="country">
+                    <input type="text" placeholder="City" id="city">
+                    <input type="text" placeholder="Address" id="address">
+                    <input type="text" placeholder="Email" id="email">
+                    <input type="text" placeholder="Phone Number" id="phone-number">
+                    <div class="section-header">LOAN DETAILS</div>
+                    <input type="text" placeholder="Loan Amount" id="loan-amount">
+                    <input type="text" placeholder="Loan Purpose" id="loan-purpose">
+                    <input type="text" placeholder="Employment Status" id="employment-status">
+                    <input type="text" placeholder="Income" id="income">
+                    <input type="text" placeholder="Credit Score" id="credit-score">
+                    <div class="section-header">DOCUMENTS</div>
+                    <input type="file" id="file-upload">
+                    <button onclick="submitLoanApplication()">Submit</button>
+                </div>`;
+            }
+            function submitLoanApplication() {
+                var firstName = document.getElementById("first-name").value;
+                var lastName = document.getElementById("last-name").value;
+                var country = document.getElementById("country").value;
+                var city = document.getElementById("city").value;
+                var address = document.getElementById("address").value;
+                var email = document.getElementById("email").value;
+                var phoneNumber = document.getElementById("phone-number").value;
+                var loanAmount = document.getElementById("loan-amount").value;
+                var loanPurpose = document.getElementById("loan-purpose").value;
+                var employmentStatus = document.getElementById("employment-status").value;
+                var income = document.getElementById("income").value;
+                var creditScore = document.getElementById("credit-score").value;
+                var file = document.getElementById("file-upload").files[0];
+
+                // Check if all fields are filled
+                if (
+                    firstName === "" ||
+                    lastName === "" ||
+                    country === "" ||
+                    city === "" ||
+                    address === "" ||
+                    email === "" ||
+                    phoneNumber === "" ||
+                    loanAmount === "" ||
+                    loanPurpose === "" ||
+                    employmentStatus === "" ||
+                    income === "" ||
+                    creditScore === "" ||
+                    file === undefined
+                ) {
+                    alert("Please fill in all the fields before submitting.");
+                    return;
+                }
+
+                // Perform any desired processing with the collected information
+                console.log("PERSONAL INFORMATION");
+                console.log("First Name:", firstName);
+                console.log("Last Name:", lastName);
+                console.log("Country:", country);
+                console.log("City:", city);
+                console.log("Address:", address);
+                console.log("Email:", email);
+                console.log("Phone Number:", phoneNumber);
+
+                console.log("LOAN DETAILS");
+                console.log("Loan Amount:", loanAmount);
+                console.log("Loan Purpose:", loanPurpose);
+                console.log("Employment Status:", employmentStatus);
+                console.log("Income:", income);
+                console.log("Credit Score:", creditScore);
+                console.log("File:", file);
+
+                // Display success message
+                alert("Your loan application has been submitted successfully!");
+            }
+
+
+
+
+
+
+            function moneyTransfer() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+            <div class="user-profile">
+                <img src="avatar.jpg" alt="User Avatar">
+                <h2>Welcome, Client!</h2>
+            </div>
+            <div class="account-form">
+                <h3>Money Transfer</h3>
+                <div class="section-header">ACCOUNT FROM</div>
+                <select id="account-from">
+                    <option value="savings">Savings Account</option>
+                    <option value="business">Business Account</option>
+                    <option value="credit">Credit Account</option>
+                </select>
+                <input type="text" placeholder="Account Number" id="account-number-from">
+                <input type="text" placeholder="Reason for Transfer" id="reason-for-transfer">
+                <input type="text" placeholder="Amount to Send" id="amount-to-send">
+                <div class="section-header">ACCOUNT TO</div>
+                <input type="text" placeholder="Account Number" id="account-number-to">
+                <input type="text" placeholder="Account Owner" id="account-owner">
+                <input type="text" placeholder="IBAN Number" id="iban-number">
+                <input type="text" placeholder="BIC Code" id="bic-code">
+                <div class="section-header">TRANSFER TYPE</div>
+                <select id="transfer-type">
+                    <option value="internal">Internal Transfer</option>
+                    <option value="domestic">Domestic Transfer</option>
+                    <option value="international">International Transfer</option>
+                </select>
+                <button onclick="submitMoneyTransfer()">Transfer</button>
+            </div>`;
+            }
+
+
+
+
+
+            // Function to handle the form submission
+            // Function to handle the form submission
+            function submitAccount() {
+                var firstName = document.getElementById("first-name").value;
+                var middleName = document.getElementById("middle-name").value;
+                var lastName = document.getElementById("last-name").value;
+                var country = document.getElementById("country").value;
+                var city = document.getElementById("city").value;
+                var email = document.getElementById("email").value;
+                var phoneNumber = document.getElementById("phone-number").value;
+                var jobTitle = document.getElementById("job-title").value;
+                var sourceOfIncome = document.getElementById("source-of-income").value;
+                var cardId = document.getElementById("card-id").value;
+                var passportNumber = document.getElementById("passport-number").value;
+                var file = document.getElementById("file-upload").files[0];
+
+                // Check if all fields are filled
+                if (
+                    firstName === "" ||
+                    middleName === "" ||
+                    lastName === "" ||
+                    country === "" ||
+                    city === "" ||
+                    email === "" ||
+                    phoneNumber === "" ||
+                    jobTitle === "" ||
+                    sourceOfIncome === "" ||
+                    cardId === "" ||
+                    passportNumber === "" ||
+                    file === undefined
+                ) {
+                    alert("Please fill in all the fields before submitting.");
+                    return;
+                }
+
+                // Perform any desired processing with the collected information
+                console.log("NAME");
+                console.log("First Name:", firstName);
+                console.log("Middle Name:", middleName);
+                console.log("Last Name:", lastName);
+
+                console.log("ADDRESS");
+                console.log("Country:", country);
+                console.log("City:", city);
+
+                console.log("OTHER INFORMATION");
+                console.log("Email:", email);
+                console.log("Phone Number:", phoneNumber);
+                console.log("Job Title:", jobTitle);
+                console.log("Source of Income:", sourceOfIncome);
+
+                console.log("ID");
+                console.log("Card ID:", cardId);
+                console.log("Passport Number:", passportNumber);
+                console.log("File:", file);
+
+                // Display success message
+                alert("Your account information has been submitted to the banker successfully!");
+            }
+
+            function closeAccount() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                <div class="user-profile">
+                    <img src="avatar.jpg" alt="User Avatar">
+                    <h2>Welcome, Client!</h2>
+                </div>
+                <div class="account-form">
+                    <h3>Close NFB Account</h3>
+                    <div class="form-item">
+                        <label for="account-number">ACCOUNT NUMBER</label>
+                        <input type="text" placeholder="Enter Account Number" id="account-number">
+                    </div>
+                    <div class="form-item">
+                        <label for="choose-account">CHOOSE ACCOUNT</label>
+                        <select id="choose-account">
+                            <option value="savings">Savings Account</option>
+                            <option value="business">Business Account</option>
+                        </select>
+                    </div>
+                    <div class="form-item">
+                        <label for="reason">REASON FOR CLOSING THE ACCOUNT</label>
+                        <input type="text" placeholder="Reason for Closing" id="reason">
+                    </div>
+                    <button onclick="submitCloseAccount()">Submit</button>
+                </div>`;
+            }
+
+            function submitCloseAccount() {
+                var accountNumber = document.getElementById("account-number").value;
+                var accountType = document.getElementById("choose-account").value;
+                var reason = document.getElementById("reason").value;
+
+                // Check if all fields are filled
+                if (accountNumber === "" || accountType === "" || reason === "") {
+                    alert("Please fill in all the fields before submitting.");
+                    return;
+                }
+
+                // Perform any desired processing with the collected information
+                console.log("Account Number:", accountNumber);
+                console.log("Account Type:", accountType);
+                console.log("Reason for Closing Account:", reason);
+
+                // Display success message
+                alert("Your account closure request has been submitted successfully!");
+            }
+            function viewAccount() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                <div class="user-profile">
+                    <img src="avatar.jpg" alt="User Avatar">
+                    <h2>Welcome, Client!</h2>
+                </div>
+                <div class="account-form">
+                    <h3>View NFB Account</h3>
+                    <label for="account-type">Choose Account Type:</label>
+                    <select id="account-type" onchange="showAccountDetails()">
+                        <option value="savings">Savings Account</option>
+                        <option value="credit">Credit Account</option>
+                        <option value="business">Business Account</option>
+                    </select>
+                    <div id="account-details"></div>
+                </div>`;
+            }
+            function gotomain() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+            <div class="user-profile">
+                <img src="avatar.jpg" alt="User Avatar">
+                <h2>Welcome, Client!</h2>
+
+            </div>
+                <div class="account-balance">
+                <h3>Account Balance</h3>
+                <p>$10,000</p>
+            </div>
+
+            <div class="pics">
+                <img src="maketransactionog.jpg" alt="Open Account" onclick="moneyTransfer()">
+                <img src="applyforloanog.jpg" alt="Loan Application" onclick="loanApplication()">
+                <img src="applyforcreditcardog.jpg" alt="Credit Card Application" onclick="applyforcreditcard()">
+            </div>`;
+            }
+
+            function checkpoints() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                <div class="user-profile">
+                    <img src="avatar.jpg" alt="User Avatar">
+                    <h2>Welcome, Client!</h2>
+                </div>
+                <div class="account-form">
+                    <h3>View Your Points</h3>
+                    <div>
+                        <p>Enter your credit card number:</p>
+                        <input type="text" placeholder="Credit Card Number" id="credit-card-number">
+                    </div>
+                    <button onclick="calculatePoints()">Submit</button>
+                    <img src="creditcard.jpg" alt="Credit Card Image">
+                </div>
+            `;
+            }
+
+            function calculatePoints() {
+                var creditCardNumber = document.getElementById("credit-card-number").value;
+
+                // Perform the necessary calculations based on the credit card number
+                var points = 390; // Sample points value
+
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                <div class="user-profile">
+                    <img src="avatar.jpg" alt="User Avatar">
+                    <h2>Welcome, Client!</h2>
+                </div>
+                <div class="account-form">
+                    <h3>Your Points</h3>
+                    <p>You have ${points} points.</p>
+                    <img src="creditcard.jpg" alt="Credit Card Image">
+                </div>
+            `;
+            }
+
+            function applyforcreditcard() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+            <div class="user-profile">
+                <img src="avatar.jpg" alt="User Avatar">
+                <h2>Welcome, Client!</h2>
+            </div>
+            <div class="account-form">
+                <h3>Apply for Credit Card</h3>
+                <div class="section-header">PERSONAL INFORMATION</div>
+                <input type="text" placeholder="First Name" id="first-name">
+                <input type="text" placeholder="Last Name" id="last-name">
+                <input type="text" placeholder="Country" id="country">
+                <input type="text" placeholder="City" id="city">
+                <input type="text" placeholder="Address" id="address">
+                <input type="text" placeholder="Email" id="email">
+                <input type="text" placeholder="Phone Number" id="phone-number">
+                <div class="section-header">CREDIT CARD DETAILS</div>
+                <input type="text" placeholder="Card Type" id="card-type">
+                <input type="text" placeholder="Credit Limit" id="credit-limit">
+                <input type="text" placeholder="Annual Income" id="annual-income">
+                <input type="file" id="file-upload">
+                <button onclick="submitCreditCardApplication()">Submit</button>
+            </div>`;
+            }
+            function submitCreditCardApplication() {
+                var firstName = document.getElementById("first-name").value;
+                var lastName = document.getElementById("last-name").value;
+                var country = document.getElementById("country").value;
+                var city = document.getElementById("city").value;
+                var address = document.getElementById("address").value;
+                var email = document.getElementById("email").value;
+                var phoneNumber = document.getElementById("phone-number").value;
+                var cardType = document.getElementById("card-type").value;
+                var creditLimit = document.getElementById("credit-limit").value;
+                var annualIncome = document.getElementById("annual-income").value;
+                var file = document.getElementById("file-upload").files[0];
+
+                // Check if all fields are filled
+                if (
+                    firstName === "" ||
+                    lastName === "" ||
+                    country === "" ||
+                    city === "" ||
+                    address === "" ||
+                    email === "" ||
+                    phoneNumber === "" ||
+                    cardType === "" ||
+                    creditLimit === "" ||
+                    annualIncome === "" ||
+                    file === undefined
+                ) {
+                    alert("Please fill in all the fields before submitting.");
+                    return;
+                }
+
+                // Perform any desired processing with the collected information
+                console.log("PERSONAL INFORMATION");
+                console.log("First Name:", firstName);
+                console.log("Last Name:", lastName);
+                console.log("Country:", country);
+                console.log("City:", city);
+                console.log("Address:", address);
+                console.log("Email:", email);
+                console.log("Phone Number:", phoneNumber);
+
+                console.log("CREDIT CARD DETAILS");
+                console.log("Card Type:", cardType);
+                console.log("Credit Limit:", creditLimit);
+                console.log("Annual Income:", annualIncome);
+                console.log("File:", file);
+
+                // Display success message
+                alert("Your credit card application has been submitted successfully!");
+            }
+
+
+
+
+
+
+
+            function showAccountDetails() {
+                var accountType = document.getElementById("account-type").value;
+                var accountDetailsDiv = document.getElementById("account-details");
+
+                if (accountType === "savings") {
+                    accountDetailsDiv.innerHTML = `
+                    <table>
+                        <tr>
+                            <th>Account Name--</th>
+                            <th>--Account Number--</th>
+                            <th>--Account Balance</th>
+                        </tr>
+                        <tr>
+                            <td>Saving Account1</td>
+                            <td>1000136</td>
+                            <td>10,000 EGP</td>
+                        </tr>
+                        <tr>
+                            <td>Saving Account2</td>
+                            <td>1000458</td>
+                            <td>10,000 EGP</td>
+                        </tr>
+                    </table>`;
+                } else if (accountType === "credit") {
+                    accountDetailsDiv.innerHTML = `
+                    <table>
+                        <tr>
+                            <th>Account Name--</th>
+                            <th>--Account Number--</th>
+                            <th>--Account Balance</th>
+                        </tr>
+                        <tr>
+                            <td>Credit Account</td>
+                            <td>97800235</td>
+                            <td>10,000 EGP</td>
+                        </tr>
+                    </table>`;
+                } else if (accountType === "business") {
+                    accountDetailsDiv.innerHTML = `<p>This user has no business account</p>`;
+                }
+            }
+            function viewNotifications() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                <div class="user-profile">
+                    <img src="avatar.jpg" alt="User Avatar">
+                    <h2>Welcome, Client!</h2>
+                </div>
+                <div class="account-form">
+                    <h3>NOTIFICATIONS</h3>
+                    <div class="notification"><p>Reminder: Please update your contact information in our records.</p></div>
+                    <div class="notification"><p>Important Notice: Scheduled maintenance on our online banking platform on June 10th, 10:00 PM - 12:00 AM.</p></div>
+                    <div class="notification"><p>New Feature: Introducing mobile check deposits for convenient banking.</p></div>
+                    <div class="notification"><p>Security Alert: Be cautious of phishing emails requesting personal information.</p></div>
+                    <div class="notification"><p>Upcoming Event: Join us for our customer appreciation day on June 15th.</p></div>
+                    <div class="notification"><p>Account Update: Your account balance has been updated with the latest transactions.</p></div>
+                    <div class="notification"><p>Financial Tip: Start saving for retirement with our new retirement savings account.</p></div>
+                    <div class="notification"><p>Holiday Schedule: Please note our operating hours for the upcoming holidays.</p></div>
+                    <img src="notifications.jpg" alt="Notifications Image">
+                </div>`;
+            }
+
+            function viewpendingLoans() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+            <div class="user-profile">
+                <img src="avatar.jpg" alt="User Avatar">
+                <h2>Welcome, Client!</h2>
+            </div>
+            <div class="account-form">
+                <h3>PENDING LOANS</h3>
+                <div class="loan-item">
+                    <p><strong>Loan Type:</strong> Personal Loan</p>
+                    <p><strong>Loan Amount:</strong> $10,000</p>
+                    <p><strong>Interest Rate:</strong> 5%</p>
+                    <p><strong>Term:</strong> 36 months</p>
+                </div>
+                <div class="loan-item">
+                    <p><strong>Loan Type:</strong> Auto Loan</p>
+                    <p><strong>Loan Amount:</strong> $20,000</p>
+                    <p><strong>Interest Rate:</strong> 4%</p>
+                    <p><strong>Term:</strong> 48 months</p>
+                </div>
+                <div class="loan-item">
+                    <p><strong>Loan Type:</strong> Home Loan</p>
+                    <p><strong>Loan Amount:</strong> $200,000</p>
+                    <p><strong>Interest Rate:</strong> 3.5%</p>
+                    <p><strong>Term:</strong> 240 months</p>
+                </div>
+                <img src="loan.jpg" alt="Loans Image">
+            </div>`;
+            }
+
+            function submitReport() {
+                var reportType = document.getElementById("report-type").value;
+                var issueDescription = document.getElementById("issue-description").value;
+
+                // Check if all fields are filled
+                if (reportType === "" || issueDescription === "") {
+                    alert("Please fill in all the fields before submitting.");
+                    return;
+                }
+
+                // Perform any desired processing with the collected information
+                console.log("Report Type:", reportType);
+                console.log("Issue Description:", issueDescription);
+
+                // Display success message
+                alert("Your report has been submitted successfully!");
+            }
+
+
+            function viewLoans() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+            <div class="user-profile">
+                <img src="avatar.jpg" alt="User Avatar">
+                <h2>Welcome, Client!</h2>
+            </div>
+            <div class="account-form">
+                <h3>ACTIVE LOANS</h3>
+                <div class="loan-item">
+                    <p><strong>Loan Type:</strong> Personal Loan</p>
+                    <p><strong>Loan Amount:</strong> $10,000</p>
+                    <p><strong>Interest Rate:</strong> 5%</p>
+                    <p><strong>Term:</strong> 36 months</p>
+                </div>
+                <div class="loan-item">
+                    <p><strong>Loan Type:</strong> Auto Loan</p>
+                    <p><strong>Loan Amount:</strong> $20,000</p>
+                    <p><strong>Interest Rate:</strong> 4%</p>
+                    <p><strong>Term:</strong> 48 months</p>
+                </div>
+                <div class="loan-item">
+                    <p><strong>Loan Type:</strong> Home Loan</p>
+                    <p><strong>Loan Amount:</strong> $200,000</p>
+                    <p><strong>Interest Rate:</strong> 3.5%</p>
+                    <p><strong>Term:</strong> 240 months</p>
+                </div>
+                <img src="loan.jpg" alt="Loans Image">
+            </div>`;
+            }
+
+            function contactus() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                <div class="user-profile">
+                    <img src="avatar.jpg" alt="User Avatar">
+                    <h2>Welcome, Client!</h2>
+                </div>
+                <h3>Contact us through our platforms</h3>
+                <div class="socials">
+                    <img src="facebook.jpg" alt="Facebook" onclick="window.location.href='https://www.facebook.com'">
+                    <img src="instagram.jpg" alt="Instagram" onclick="window.location.href='https://www.instagram.com'">
+                    <img src="email.jpg" alt="Email" onclick="window.location.href='https://www.outlook.com'">
+                    <img src="report.jpg" alt="Report Issue" onclick="viewReportForm()">
+                </div>`;
+            }
+
+
+
+
+            function viewReportForm() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+            <div class="user-profile">
+                <img src="avatar.jpg" alt="User Avatar">
+                <h2>Welcome, Client!</h2>
+            </div>
+            <div class="account-form">
+                <h3>REPORT AN ISSUE</h3>
+                <div class="form-field">
+                    <label for="report-type">Report Type:</label>
+                    <select id="report-type">
+                        <option value="">-- Select Report Type --</option>
+                        <optgroup label="Technical Issues">
+                            <option value="Bug">Bug</option>
+                            <option value="Performance Issue">Performance Issue</option>
+                            <option value="Security Concern">Security Concern</option>
+                        </optgroup>
+                        <optgroup label="Feature Requests">
+                            <option value="Feature Request">Feature Request</option>
+                            <option value="Usability Feedback">Usability Feedback</option>
+                        </optgroup>
+                        <optgroup label="Other">
+                            <option value="Other">Other</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="issue-description">Issue Description:</label>
+                    <textarea id="issue-description" placeholder="Describe the issue"></textarea>
+                </div>
+                <button onclick="submitReport()">Submit</button>
+            </div>`;
+            }
+
+
+
+            function viewTransactions() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+            <div class="user-profile">
+                <img src="avatar.jpg" alt="User Avatar">
+                <h2>Welcome, Client!</h2>
+            </div>
+            <div class="account-form">
+                <h3>TRANSACTION HISTORY</h3>
+                <div class="transaction-item">
+                    <p><strong>Date:</strong> May 20, 2023</p>
+                    <p><strong>Description:</strong> Purchase - Electronics</p>
+                    <p><strong>Amount:</strong> $500</p>
+                </div>
+                <div class="transaction-item">
+                    <p><strong>Date:</strong> May 18, 2023</p>
+                    <p><strong>Description:</strong> ATM Withdrawal</p>
+                    <p><strong>Amount:</strong> $200</p>
+                </div>
+                <div class="transaction-item">
+                    <p><strong>Date:</strong> May 15, 2023</p>
+                    <p><strong>Description:</strong> Online Payment - Utility Bill</p>
+                    <p><strong>Amount:</strong> $100</p>
+                </div>
+                <img src="transactions.jpg" alt="Transactions Image">
+            </div>`;
+            }
+
+
+
+            function viewAnnouncements() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+            <div class="user-profile">
+              <img src="avatar.jpg" alt="User Avatar">
+              <h2>Welcome, Client!</h2>
+            </div>
+            <div class="account-form">
+              <h3>ANNOUNCEMENTS</h3>
+              <div class="announcement"><p>Important Notice: Scheduled maintenance on our online banking platform on June 10th, 10:00 PM - 12:00 AM.</p></div>
+              <div class="announcement"><p>Security Alert: Be cautious of phishing emails requesting personal information.</p></div>
+              <div class="announcement"><p>Upcoming Event: Join us for our customer appreciation day on June 15th.</p></div>
+              <div class="announcement"><p>Holiday Schedule: Please note our operating hours for the upcoming holidays.</p></div>
+              <div class="announcement"><p>Branch Openings: Check new branch openings in Alexandria</p></div>
+              <img src="notifications.jpg" alt="Notifications Image">
+            </div>`;
+            }
+
+
+
+
+
+
+            function lockCreditCard() {
+                var cardNumber = prompt("Enter credit card number to lock:");
+                if (cardNumber) {
+                    var otp = prompt("Enter OTP number:");
+                    if (otp) {
+                        alert("Credit card " + cardNumber + " has been locked successfully");
+                    } else {
+                        alert("Invalid OTP");
+                    }
+                } else {
+                    alert("Invalid credit card number");
+                }
+            }
+
+            function UnlockCreditCard() {
+                var cardNumber = prompt("Enter credit card number to Unlock:");
+                if (cardNumber) {
+                    var otp = prompt("Enter OTP number:");
+                    if (otp) {
+                        alert("Credit card " + cardNumber + " has been Unlocked successfully");
+                    } else {
+                        alert("Invalid OTP");
+                    }
+                } else {
+                    alert("Invalid credit card number");
+                }
+            }
+        </script>
+
+
         <section id="dashboard-section">
             <div class="user-profile">
-                <img src="/Images/avatar.jpg" alt="User Avatar">
+                <img src="avatar.jpg" alt="User Avatar">
                 <h2>Welcome, client!</h2>
             </div>
 
@@ -80,9 +903,9 @@
                 <p>$10,000</p>
             </div>
             <div class="pics">
-                <img src="/Images/maketransactionog.jpg" alt="Open Account" onclick="moneyTransfer()">
-                <img src="/Images/applyforloanog.jpg" alt="Loan Application" onclick="loanApplication()">
-                <img src="/Images/applyforcreditcardog.jpg" alt="Credit Card Application" onclick="applyforcreditcard()">
+                <img src="maketransactionog.jpg" alt="Open Account" onclick="moneyTransfer()">
+                <img src="applyforloanog.jpg" alt="Loan Application" onclick="loanApplication()">
+                <img src="applyforcreditcardog.jpg" alt="Credit Card Application" onclick="applyforcreditcard()">
             </div>`;
 </div>
 
