@@ -54,6 +54,363 @@
             </ul>
         </aside>
 
+        <script>
+
+
+            function openAccount() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+    <div class="user-profile">
+        <img src="/Images/wegz.jpg" alt="User Avatar">
+        <h2>Welcome, Admin!</h2>
+    </div>
+    <div class="account-form">
+        <h3>ACCOUNT OPENING REQUESTS</h3>
+        <div class="account-closing-request" onclick="toggleClosingRequestDecision(1)">
+            <p>Request 1: Mark Adel - Account Number: 12345678</p>
+            <div id="closing-request-decision-1" style="display: none;">
+                <button onclick="acceptClosingRequest(1)">Accept</button>
+                <button onclick="rejectClosingRequest(1)">Reject</button>
+            </div>
+        </div>
+        <div class="account-closing-request" onclick="toggleClosingRequestDecision(2)">
+            <p>Request 2: Karim Wegz - Account Number: 98765432</p>
+            <div id="closing-request-decision-2" style="display: none;">
+                <button onclick="acceptClosingRequest(2)">Accept</button>
+                <button onclick="rejectClosingRequest(2)">Reject</button>
+            </div>
+        </div>
+        <div class="account-closing-request" onclick="toggleClosingRequestDecision(3)">
+            <p>Request 3: Ismail Abboud  - Account Number: 56789123</p>
+            <div id="closing-request-decision-3" style="display: none;">
+                <button onclick="acceptClosingRequest(3)">Accept</button>
+                <button onclick="rejectClosingRequest(3)">Reject</button>
+            </div>
+        </div>
+        <div class="account-closing-request" onclick="toggleClosingRequestDecision(4)">
+            <p>Request 4: Sarah Wilson - Account Number: 43219876</p>
+            <div id="closing-request-decision-4" style="display: none;">
+                <button onclick="acceptClosingRequest(4)">Accept</button>
+                <button onclick="rejectClosingRequest(4)">Reject</button>
+            </div>
+        </div>
+
+
+
+        
+    </div>`;
+            }
+
+            function closeAccount() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+    <div class="user-profile">
+        <img src="/Images/wegz.jpg" alt="User Avatar">
+        <h2>Welcome, Admin!</h2>
+    </div>
+    <div class="account-form">
+        <h3>ACCOUNT CLOSING REQUESTS</h3>
+        <div class="account-closing-request" onclick="toggleClosingRequestDecision(1)">
+            <p>Request 1: Mark Adel - Account Number: 12345678</p>
+            <div id="closing-request-decision-1" style="display: none;">
+                <button onclick="acceptClosingRequest(1)">Accept</button>
+                <button onclick="rejectClosingRequest(1)">Reject</button>
+            </div>
+        </div>
+        <div class="account-closing-request" onclick="toggleClosingRequestDecision(2)">
+            <p>Request 2: Karim Wegz - Account Number: 98765432</p>
+            <div id="closing-request-decision-2" style="display: none;">
+                <button onclick="acceptClosingRequest(2)">Accept</button>
+                <button onclick="rejectClosingRequest(2)">Reject</button>
+            </div>
+        </div>
+        <div class="account-closing-request" onclick="toggleClosingRequestDecision(3)">
+            <p>Request 3: Ismail Abboud  - Account Number: 56789123</p>
+            <div id="closing-request-decision-3" style="display: none;">
+                <button onclick="acceptClosingRequest(3)">Accept</button>
+                <button onclick="rejectClosingRequest(3)">Reject</button>
+            </div>
+        </div>
+        <div class="account-closing-request" onclick="toggleClosingRequestDecision(4)">
+            <p>Request 4: Sarah Wilson - Account Number: 43219876</p>
+            <div id="closing-request-decision-4" style="display: none;">
+                <button onclick="acceptClosingRequest(4)">Accept</button>
+                <button onclick="rejectClosingRequest(4)">Reject</button>
+            </div>
+        </div>
+        
+    </div>`;
+            }
+
+            function toggleClosingRequestDecision(requestId) {
+                var decisionSection = document.getElementById("closing-request-decision-" + requestId);
+                decisionSection.style.display = decisionSection.style.display === "none" ? "block" : "none";
+            }
+
+            function acceptClosingRequest(requestId) {
+                alert("Request Accepted");
+            }
+
+            function rejectClosingRequest(requestId) {
+                alert("Request Rejected");
+            }
+
+        
+
+
+
+
+
+
+            function LockCreditCard() {
+                var cardNumber = prompt("Enter credit card number to lock:");
+                if (cardNumber) {
+                    var otp = prompt("Enter OTP number:");
+                    if (otp) {
+                        alert("Credit card " + cardNumber + " has been locked successfully");
+                    } else {
+                        alert("Invalid OTP");
+                    }
+                } else {
+                    alert("Invalid credit card number");
+                }
+            }
+
+            function UnlockCreditCard() {
+                var cardNumber = prompt("Enter credit card number to Unlock:");
+                if (cardNumber) {
+                    var otp = prompt("Enter OTP number:");
+                    if (otp) {
+                        alert("Credit card " + cardNumber + " has been Unlocked successfully");
+                    } else {
+                        alert("Invalid OTP");
+                    }
+                } else {
+                    alert("Invalid credit card number");
+                }
+            }
+
+
+            function sendAnnouncements() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+    <div class="user-profile">
+        <img src="/Images/wegz.jpg" alt="User Avatar">
+        <h2>Welcome, Admin!</h2>
+    </div>
+    <div class="account-form">
+        <h3>SEND ANNOUNCEMENTS</h3>
+        <input type="text" placeholder="Enter your announcement" id="announcement-input">
+        <button onclick="postAnnouncement()">Post</button>
+        <div id="announcement-list"></div>
+        <img src="/Images/notifications.jpg" alt="Notifications Image">
+    </div>`;
+            }
+            function postAnnouncement() {
+                var announcementInput = document.getElementById("announcement-input");
+                var announcementList = document.getElementById("announcement-list");
+
+                if (announcementInput.value.trim() !== "") {
+                    var announcementText = announcementInput.value;
+                    var newAnnouncement = document.createElement("p");
+                    newAnnouncement.textContent = announcementText;
+                    announcementList.appendChild(newAnnouncement);
+                    alert(" Announcement posted Successfully.");
+
+                    announcementInput.value = "";
+                } else {
+                    alert("No announcement posted.");
+                }
+            }
+
+            function sendNotifications() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+    <div class="user-profile">
+        <img src="/Images/wegz.jpg" alt="User Avatar">
+        <h2>Welcome, Admin!</h2>
+    </div>
+    <div class="account-form">
+        <h3>SEND NOTIFICATIONS</h3>
+        <input type="text" placeholder="Enter Client Bank ID" id="client-id-input">
+        <input type="text" placeholder="Enter your notification" id="notification-input">
+        <button onclick="postNotification()">Send</button>
+        <div id="notification-list"></div>
+        <img src="/Images/notifications.jpg" alt="Notifications Image">
+    </div>`;
+            }
+
+            function postNotification() {
+                var clientIdInput = document.getElementById("client-id-input");
+                var notificationInput = document.getElementById("notification-input");
+                var notificationList = document.getElementById("notification-list");
+
+                if (notificationInput.value.trim() !== "") {
+                    var clientId = clientIdInput.value;
+                    var notificationText = notificationInput.value;
+                    var newNotification = document.createElement("p");
+                    newNotification.innerHTML = `<strong>Client Bank ID:</strong> ${clientId}<br>${notificationText}`;
+                    notificationList.appendChild(newNotification);
+                    alert("Notification sent successfully.");
+
+                    clientIdInput.value = "";
+                    notificationInput.value = "";
+                } else {
+                    alert("No notification sent.");
+                }
+            }
+
+
+
+            function viewReports() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+    <div class="user-profile">
+        <img src="/Images/wegz.jpg" alt="User Avatar">
+        <h2>Welcome, Admin!</h2>
+    </div>
+    <div class="account-form">
+        <h3>Technical Issues</h3>
+        <div class="report" onclick="toggleReportReply(1)">
+            <p>Report 1: can not login on Account number XXXX1234.</p>
+            <p>Account Name: Mark Adel</p>
+            <div id="report-reply-1" style="display: none;">
+                <textarea placeholder="Enter your reply"></textarea>
+                <button onclick="submitReportReply(1)">Send</button>
+            </div>
+        </div>
+        <div class="report" onclick="toggleReportReply(2)">
+            <p>Report 2:No account balance displayed for Account number XXXX5678.</p>
+            <p>Account Name: Karim Wagdy</p>
+            <div id="report-reply-2" style="display: none;">
+                <textarea placeholder="Enter your reply"></textarea>
+                <button onclick="submitReportReply(2)">Send</button>
+            </div>
+        </div>
+        <div class="report" onclick="toggleReportReply(3)">
+            <p>Report 3: Transaction failure for Account number XXXX9012.</p>
+            <p>Account Name: Ismail Abboud</p>
+            <div id="report-reply-3" style="display: none;">
+                <textarea placeholder="Enter your reply"></textarea>
+                <button onclick="submitReportReply(3)">Send</button>
+            </div>
+        </div>
+        <div class="report" onclick="toggleReportReply(4)">
+            <p>Report 4: Inaccurate transaction record in statement for Account number XXXX3456.</p>
+            <p>Account Name: Sarah Wilson</p>
+            <div id="report-reply-4" style="display: none;">
+                <textarea placeholder="Enter your reply"></textarea>
+                <button onclick="submitReportReply(4)">Send</button>
+            </div>
+        </div>
+
+        <img src="/Images/notifications.jpg" alt="Reports Image">
+    </div>`;
+
+            }
+
+            function viewCreditCardApplications() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+    <div class="user-profile">
+        <img src="/Images/wegz.jpg" alt="User Avatar">
+        <h2>Welcome, Admin!</h2>
+    </div>
+    <div class="account-form">
+        <h3>CREDIT CARD APPLICATIONS</h3>
+        <div class="credit-card-application" onclick="toggleApplicationDecision(1)">
+            <p>Application 1: Mark Adel - Credit Limit: $10,000</p>
+            <div id="application-decision-1" style="display: none;">
+                <button onclick="approveApplication(1)">Approve</button>
+                <button onclick="rejectApplication(1)">Reject</button>
+            </div>
+        </div>
+        <div class="credit-card-application" onclick="toggleApplicationDecision(2)">
+            <p>Application 2: Ismail aAbboud - Credit Limit: $7,500</p>
+            <div id="application-decision-2" style="display: none;">
+                <button onclick="approveApplication(2)">Approve</button>
+                <button onclick="rejectApplication(2)">Reject</button>
+            </div>
+        </div>
+        <div class="credit-card-application" onclick="toggleApplicationDecision(3)">
+            <p>Application 3: Karim Wagdy  - Credit Limit: $12,000</p>
+            <div id="application-decision-3" style="display: none;">
+                <button onclick="approveApplication(3)">Approve</button>
+                <button onclick="rejectApplication(3)">Reject</button>
+            </div>
+        </div>
+        <div class="credit-card-application" onclick="toggleApplicationDecision(4)">
+            <p>Application 4: Aalaa Wael  - Credit Limit: $9,000</p>
+            <div id="application-decision-4" style="display: none;">
+                <button onclick="approveApplication(4)">Approve</button>
+                <button onclick="rejectApplication(4)">Reject</button>
+            </div>
+        </div>
+        <img src="/Images/creditcardapplication.jpg" alt="apply Image">
+    </div>`;
+            }
+
+            function toggleApplicationDecision(applicationId) {
+                var decisionSection = document.getElementById("application-decision-" + applicationId);
+                decisionSection.style.display = decisionSection.style.display === "none" ? "block" : "none";
+            }
+
+            function approveApplication(applicationId) {
+                alert("Credit Card Application Approved");
+            }
+
+            function rejectApplication(applicationId) {
+                alert("Credit Card Application Rejected");
+            }
+
+
+
+            function toggleReportReply(reportNumber) {
+                var reportReplySection = document.getElementById(`report-reply-${reportNumber}`);
+                var reportReplyInput = document.getElementById(`report-reply-input-${reportNumber}`);
+                var reportReplyVisible = reportReplySection.style.display === "block";
+
+                if (reportReplyVisible) {
+                    var replyValue = reportReplyInput.value;
+                    reportReplySection.style.display = "none";
+                    reportReplyInput.value = replyValue;
+                } else {
+                    reportReplySection.style.display = "block";
+                    reportReplyInput.focus();
+                }
+            }
+            function submitReportReply(reportNumber) {
+                var reportReplyTextarea = document.getElementById("report-reply-" + reportNumber);
+                var reportReply = reportReplyTextarea.value;
+
+                // Perform any necessary validation or processing here
+
+                // Example alert to show the report reply
+                alert(" Report Reply submitted successfully");
+
+                // Clear the report reply textarea
+                reportReplyTextarea.value = "";
+            }
+
+            function gotomain() {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+    <div class="user-profile">
+      <img src="/Images/wegz.jpg" alt="User Avatar">
+      <h2>Welcome, Admin!</h2>
+    </div>
+    <div class="pictures">
+      <img src="/Images/notifications.jpg" alt="Open Account" onclick="viewReports()">
+      <img src="/Images/creditcardapplication.jpg" alt="Loan Application" onclick="viewCreditCardApplications()">
+      <img src="/Images/adminsendnotification.jpg" alt="Credit Card Application" onclick="sendNotifications()">
+    </div>`;
+            }
+
+             
+
+
+
+        </script>
 
 
 
@@ -77,5 +434,6 @@
                     &copy; 2023 Nexus Financial Bank. All rights reserved.
                 </footer>
 
+                <script src="script.js"></script>
 </body>
 </html>
