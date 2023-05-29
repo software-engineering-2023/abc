@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banker</title>
     <link rel="stylesheet" href="bankerstyle.css">
-    <link rel="icon" href="favicon-32x32.png">
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="/Images/logo.jpg" alt="Logo" class="logo">
+            <img src="logo.jpg" alt="Logo" class="logo">
             <h1>Welcome, Banker!</h1>
         </div>
     </header>
@@ -64,13 +63,13 @@
         </aside>
         <section id="dashboard-section">
             <div class="user-profile">
-                <img src="/Images/abboud.jpg" alt="User Avatar">
+                <img src="abboud.jpg" alt="User Avatar">
                 <h2>Welcome, Banker!</h2>
             </div>
             <div class="pictures">
-                <img src="/Images/reviewissues.jpg" alt="Open Account" onclick="viewReports()">
-                <img src="/Images/creditcardapplication.jpg" alt="Loan Application" onclick="viewCreditCardApplications()">
-                <img src="/Images/adminsendnotification.jpg" alt="Credit Card Application" onclick="sendNotifications()">
+                <img src="reviewissues.jpg" alt="Open Account" onclick="viewReports()">
+                <img src="creditcardapplication.jpg" alt="Loan Application" onclick="viewCreditCardApplications()">
+                <img src="adminsendnotification.jpg" alt="Credit Card Application" onclick="sendNotifications()">
             </div>
         </section>
     </div>
@@ -79,5 +78,658 @@
     <footer class="footer">
         &copy; 2023 Nexus Financial Bank. All rights reserved.
     </footer>
+
+
+    <script>
+        function showBankNews() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            var newsItems = [
+                " Bank introduces new mobile banking app for enhanced customer experience.",
+                " Bank launches innovative savings account with higher interest rates.",
+                " Bank partners with leading fintech company to offer digital payment solutions.",
+                " Bank opens new branch in [City Name] to expand its presence.",
+                " Bank implements advanced security measures to protect customer data.",
+                " Bank wins prestigious award for excellence in customer service.",
+                " Bank announces new scholarship program to support education in the community."
+            ];
+
+            var newsHTML = '<div class="user-profile">' +
+                '  <img src="abboud.jpg" alt="User avatar">' +
+                '  <h2>Welcome, Banker!</h2>' +
+                '</div>' +
+                '<div class="news">' +
+                '  <h3>Bank News</h3>' +
+                '  <ul>';
+
+            for (var i = 0; i < newsItems.length; i++) {
+                newsHTML += '<li>' + newsItems[i] + '</li>';
+            }
+
+            newsHTML += '  </ul>' +
+                '</div>';
+
+            dashboardSection.innerHTML = newsHTML;
+        }
+
+
+
+        function showCustomerTable() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+ <div class="user-profile">
+                        <img src="abboud.jpg" alt="User avatar">
+                        <h2>Welcome, Banker!</h2>
+                    </div>
+                    <div class="container">
+                        <h3>Customer Information</h3>
+                        <table class="customer-table">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Account ID</th>
+                                <th>Phone Number</th>
+                                <th>Address</th>
+                                <th>Credit Card Number</th>
+                            </tr>
+                            <tr>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>12345</td>
+                                <td>555-1234</td>
+                                <td>123 Main St</td>
+                                <td>1234 5678 9012 3456</td>
+                            </tr>
+                            <tr>
+                                <td>Jane</td>
+                                <td>Smith</td>
+                                <td>67890</td>
+                                <td>555-5678</td>
+                                <td>456 Elm St</td>
+                                <td>9876 5432 1098 7654</td>
+                            </tr>
+                            <tr>
+                                <td>Michael</td>
+                                <td>Johnson</td>
+                                <td>54321</td>
+                                <td>555-9876</td>
+                                <td>789 Oak Ave</td>
+                                <td>5678 9012 3456 7890</td>
+                            </tr>
+                            <tr>
+                                <td>Sarah</td>
+                                <td>Williams</td>
+                                <td>98765</td>
+                                <td>555-4321</td>
+                                <td>321 Pine St</td>
+                                <td>9012 3456 7890 1234</td>
+                            </tr>
+                            <tr>
+                                <td>David</td>
+                                <td>Lee</td>
+                                <td>13579</td>
+                                <td>555-1357</td>
+                                <td>246 Maple Ave</td>
+                                <td>5678 9012 3456 7890</td>
+                            </tr>
+                            <tr>
+                                <td>Amy</td>
+                                <td>Wilson</td>
+                                <td>24680</td>
+                                <td>555-2468</td>
+                                <td>789 Oak St</td>
+                                <td>1234 5678 9012 3456</td>
+                            </tr>
+                            <tr>
+                                <td>Robert</td>
+                                <td>Thompson</td>
+                                <td>86420</td>
+                                <td>555-8642</td>
+                                <td>135 Elm St</td>
+                                <td>9876 5432 1098 7654</td>
+                            </tr>
+                            <tr>
+                                <td>Emily</td>
+                                <td>Clark</td>
+                                <td>75309</td>
+                                <td>555-7530</td>
+                                <td>579 Pine Ave</td>
+                                <td>5678 9012 3456 7890</td>
+                            </tr>
+                            <tr>
+                                <td>Christopher</td>
+                                <td>Anderson</td>
+                                <td>95173</td>
+                                <td>555-9517</td>
+                                <td>357 Oak St</td>
+                                <td>9012 3456 7890 1234</td>
+                            </tr>
+                            <tr>
+                                <td>Laura</td>
+                                <td>Robinson</td>
+                                <td>46802</td>
+                                <td>555-4680</td>
+                                <td>246 Pine Ave</td>
+                                <td>5678 9012 3456 7890</td>
+                            </tr>
+                        </table>
+                    </div>`;
+        }
+
+        function closeExistingAccount() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+ <div class="user-profile">
+                        <img src="abboud.jpg" alt="User avatar">
+                        <h2>Welcome, Banker!</h2>
+                    </div>
+                    <div class="cc">
+                        <h3>Close Existing Account</h3>
+                        <form onsubmit="event.preventDefault();">
+                            <label for="customer-id">Customer ID:</label>
+                            <input type="text" id="customer-id" name="customer-id"><br><br>
+                            <label for="reason">Reason for Closing Account:</label>
+                            <textarea id="reason" name="reason" rows="4" cols="50"></textarea><br><br>
+                            <input type="submit" value="Close Account" onclick="showConfirmationMessage()">
+                        </form>
+                    </div>`;
+        }
+
+        function closeAccountForm() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+ <div class="user-profile">
+                        <img src="abboud.jpg" alt="User avatar">
+                        <h2>Welcome, Banker!</h2>
+                    </div>
+                    <div class="dd">
+                        <h3>Close Existing Account</h3>
+                        <form onsubmit="event.preventDefault(); showConfirmationMessage();">
+                            <label for="customer-id">Customer ID:</label>
+                            <input type="text" id="customer-id" name="customer-id"><br><br>
+                            <label for="reason">Reason for Closing Account:</label>
+                            <textarea id="reason" name="reason" rows="4" cols="50"></textarea><br><br>
+                            <input type="submit" value="Close Account">
+                        </form>
+                    </div>`;
+        }
+        function showPopup(action, message) {
+            alert(`${action} - ${message}`);
+        }
+
+        function showConfirmationMessage() {
+            var customerId = document.getElementById("customer-id").value;
+            var reason = document.getElementById("reason").value;
+
+            var confirmationMessage = `Close Account request has been sent to admin.\n\nThis account with Customer ID ${customerId} is no longer in the bank's records.`;
+            alert(confirmationMessage);
+
+            // Reset or update the dashboard
+            closeAccountForm();
+        }
+
+        function gotomain() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+                    <div class="container">
+                        <div class="user-profile">
+                            <img src="abboud.jpg" alt="User Profile">
+                            <p>Welcome, Banker!</p>
+                        </div>
+                    </div>`;
+        }
+
+        function openNewAccountForm() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+ <div class="user-profile">
+                        <img src="abboud.jpg" alt="User avatar">
+                        <h2>Welcome, Banker!</h2>
+                    </div>
+                    <div class="vv">
+                        <h3>Open New Customer Account</h3>
+                        <form onsubmit="event.preventDefault(); showNewAccountConfirmation();">
+                            <label for="first-name">First Name:</label>
+                            <input type="text" id="first-name" name="first-name"><br><br>
+                            <label for="last-name">Last Name:</label>
+                            <input type="text" id="last-name" name="last-name"><br><br>
+                            <label for="phone-number">Phone Number:</label>
+                            <input type="text" id="phone-number" name="phone-number"><br><br>
+                            <label for="address">Address:</label>
+                            <textarea id="address" name="address" rows="4" cols="50"></textarea><br><br>
+                            <input type="submit" value="Open Account">
+                        </form>
+                    </div>`;
+        }
+
+        function showNewAccountConfirmation() {
+            var firstName = document.getElementById("first-name").value;
+            var lastName = document.getElementById("last-name").value;
+            var customerId = Math.floor(10000 + Math.random() * 90000);
+            var creditCardNumber = Math.floor(1000 + Math.random() * 9000) + " " +
+                Math.floor(1000 + Math.random() * 9000) + " " +
+                Math.floor(1000 + Math.random() * 9000) + " " +
+                Math.floor(1000 + Math.random() * 9000);
+            var confirmationMessage = `New customer account for ${firstName} ${lastName} has been created successfully (with Account ID ${customerId} and Credit Card Number ${creditCardNumber})`;
+            alert(confirmationMessage);
+
+            // Reset or update the dashboard
+            openNewAccountForm();
+        }
+        function showTransactionHistoryForm() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+ <div class="user-profile">
+                        <img src="abboud.jpg" alt="User avatar">
+                        <h2>Welcome, Banker!</h2>
+                    </div>
+            <div class="pp">
+                <h3>Transaction History</h3>
+                <form onsubmit="event.preventDefault(); showTransactionHistory();">
+                    <label for="customer-id">Customer ID:</label>
+                    <input type="text" id="customer-id" name="customer-id"><br><br>
+                    <input type="submit" value="Search">
+                </form>
+            </div>`;
+        }
+        function showTransactionHistory() {
+            var customerId = document.getElementById("customer-id").value;
+
+            // TODO: Implement logic to fetch the transaction history based on the customer ID
+            // Here, I will provide you with an example of generating a random transaction history
+
+            // Generate a random transaction date
+            var transactionDate = getRandomDate();
+
+            // Generate a random transaction amount
+            var transactionAmount = getRandomAmount();
+
+            // Generate a random transaction ID
+            var transactionId = getRandomTransactionId();
+
+            // Retrieve customer information based on the customer ID
+            var customerInfo = getCustomerInfo(customerId);
+
+            // Check if customer information is found
+            if (customerInfo) {
+                var customerName = customerInfo.firstName + " " + customerInfo.lastName;
+
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                <div class="ww">
+                    <h3>Transaction History</h3>
+                    <table class="transaction-table">
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Customer ID</th>
+                            <th>Transaction Date</th>
+                            <th>Transaction Amount</th>
+                            <th>Transaction ID</th>
+                        </tr>
+                        <tr>
+                            <td>${customerName}</td>
+                            <td>${customerId}</td>
+                            <td>${transactionDate}</td>
+                            <td>${transactionAmount}</td>
+                            <td>${transactionId}</td>
+                        </tr>
+                    </table>
+                </div>`;
+            } else {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                <div class="ww">
+                    <h3>Transaction History</h3>
+                    <p>No transaction history found for Customer ID: ${customerId}</p>
+                </div>`;
+            }
+        }
+
+        // Example functions to generate random data for demonstration purposes
+        function getRandomDate() {
+            var startDate = new Date(2022, 0, 1); // Start date: January 1, 2022
+            var endDate = new Date(); // End date: Current date
+            var randomTimestamp = startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime());
+            var transactionDate = new Date(randomTimestamp);
+            return transactionDate.toDateString();
+        }
+
+        function getRandomAmount() {
+            return Math.floor(Math.random() * 1000) + 1; // Random amount between 1 and 1000
+        }
+
+        function getRandomTransactionId() {
+            return Math.floor(100000 + Math.random() * 900000); // Random 6-digit transaction ID
+        }
+
+        // Example function to retrieve customer information based on the customer ID
+        function getCustomerInfo(customerId) {
+            // Implement your logic to fetch customer information from the database or data source
+            // Here, I will provide a hard-coded example for demonstration purposes
+
+            var customerInfo = {
+                customerId: "12345",
+                firstName: "John",
+                lastName: "Doe",
+                phoneNumber: "555-1234",
+                address: "123 Main St",
+                creditCardNumber: "1234 5678 9012 3456"
+            };
+
+            if (customerId === customerInfo.customerId) {
+                return customerInfo;
+            } else {
+                return null;
+            }
+        }
+        function submitReport() {
+            var reportType = document.getElementById("report-type").value;
+            var issueDescription = document.getElementById("issue-description").value;
+
+            // Check if all fields are filled
+            if (reportType === "" || issueDescription === "") {
+                alert("Please fill in all the fields before submitting.");
+                return;
+            }
+
+            // Perform any desired processing with the collected information
+            console.log("Report Type:", reportType);
+            console.log("Issue Description:", issueDescription);
+
+            // Display success message
+            alert("Your report has been submitted successfully!");
+        }
+        function showLoanApprovalForm() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+ <div class="user-profile">
+                        <img src="abboud.jpg" alt="User avatar">
+                        <h2>Welcome, Banker!</h2>
+                    </div>
+            <div class="oo">
+                <h3>Loan Approval</h3>
+                <form onsubmit="event.preventDefault(); showLoanApprovalResult();">
+                    <label for="customer-id">Customer ID:</label>
+                    <input type="text" id="customer-id" name="customer-id"><br><br>
+                    <input type="submit" value="Check for Loan Requestes ">
+                </form>
+            </div>`;
+        }
+
+        function showLoanApprovalResult() {
+            var customerId = document.getElementById("customer-id").value;
+
+            // Retrieve customer information based on the customer ID
+            var customerInfo = getCustomerInfo(customerId);
+
+            // Check if customer information is found
+            if (customerInfo) {
+                var customerName = customerInfo.firstName + " " + customerInfo.lastName;
+                // Generate random values for loanAmount, numberOfInstallments, and deadline
+                var loanAmount = Math.floor(Math.random() * 10000) + 1000; // Random loan amount between 1000 and 11000
+                var numberOfInstallments = Math.floor(Math.random() * 12) + 1; // Random number of installments between 1 and 12
+                var deadline = new Date(); // Random deadline as the current date/time
+
+                // Add appropriate calculations or formatting if required
+                deadline.setDate(deadline.getDate() + Math.floor(Math.random() * 30)); // Add a random number of days (up to 30) to the current date
+
+                // Use the generated random values in your code as needed
+                // ...
+
+
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                <div class="kk">
+                    <h3>Loan Approval Result</h3>
+                    <p><strong>Customer ID:</strong> ${customerId}</p>
+                    <p><strong>Customer Name:</strong> ${customerName}</p>
+                    <p><strong>Loan Amount:</strong> $ ${loanAmount}</p>
+                    <p><strong>Number of Installments:</strong> ${numberOfInstallments}</p>
+                    <p><strong>Deadline:</strong> ${deadline}</p>
+                </div>`;
+            } else {
+                var dashboardSection = document.getElementById("dashboard-section");
+                dashboardSection.innerHTML = `
+                <div class="kk">
+                    <h3>Loan Approval Result</h3>
+                    <p>No customer found with ID ${customerId}.</p>
+                </div>`;
+            }
+        }
+        function showFAQ() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+            <div class="FAQ">
+                <h3>FAQ for Employees</h3>
+                <div class="faq-content">
+                    <div class="notification"><p>Question 1: What are the typical working hours in the bank?</p></div>
+                    <div class="notification"><p>Answer: Bank working hours vary, but most banks operate from Monday to Friday, typically from 9:00 AM to 5:00 PM. Some banks may have extended hours on certain days or offer weekend services.</p></div>
+                    <div class="notification"><p>Question 2: What should I do if I am going to be late or absent from work?</p></div>
+                    <div class="notification"><p>Answer: If you anticipate being late or unable to come to work, it's important to inform your supervisor or the appropriate department as early as possible. Follow your bank's specific protocols for reporting absences or tardiness.</p></div>
+                    <div class="notification"><p>Question 3: What dress code should I follow while working at the bank?</p></div>
+                    <div class="notification"><p>Answer: Most banks have a formal or business professional dress code. It typically includes wearing formal attire such as suits, dresses, or dress shirts with ties. Make sure to follow your bank's dress code policy for specific guidelines.</p></div>
+                    <div class="notification"><p>Question 4: How do I request time off or vacation days?</p></div>
+                    <div class="notification"><p>Answer: The process for requesting time off or vacation days may vary among banks. Check your bank's internal policies or employee handbook for the specific procedure. Generally, you will need to submit a written request to your supervisor or the HR department within a specified time frame.</p></div>
+                    <div class="notification"><p>Question 5: Can I access my personal email or use social media during working hours?</p></div>
+                    <div class="notification"><p>Answer: Bank policies regarding personal email and social media usage can vary. Some banks may restrict or monitor access to personal email or social media platforms during working hours to maintain security and productivity. Familiarize yourself with your bank's policies on internet usage to ensure compliance.</p></div>
+                    <div class="notification"><p>Question 6: What should I do if a customer presents a complaint or concern?</p></div>
+                    <div class="notification"><p>Answer: If a customer presents a complaint or concern, it's essential to handle the situation professionally and empathetically. Listen carefully to the customer's issue, remain calm, and try to provide a satisfactory solution. If necessary, involve your supervisor or the appropriate department to ensure the matter is resolved appropriately.</p></div>
+                    <div class="notification"><p>Question 7: How can I enhance my knowledge and skills in the banking industry?</p></div>
+                    <div class="notification"><p>Answer: To enhance your knowledge and skills, you can actively participate in training programs, workshops, or seminars offered by your bank. Additionally, staying updated with industry news, reading relevant books or articles, and networking with colleagues can contribute to your professional growth.</p></div>
+                    <div class="notification"><p>Question 8: What security measures should I follow to ensure customer confidentiality?</p></div>
+                    <div class="notification"><p>Answer: Maintaining customer confidentiality is crucial in banking. Follow your bank's security protocols, such as protecting customer information, using secure communication channels, and being vigilant against potential fraud or data breaches. Report any suspicious activities or security concerns to the appropriate department.</p></div>
+                    <div class="notification"><p>Question 9: What do I do if I suspect fraudulent activity or encounter a suspicious transaction?</p></div>
+                    <div class="notification"><p>Answer: If you suspect fraudulent activity or encounter a suspicious transaction, immediately report it to your supervisor or the bank's security department. Follow your bank's procedures for documenting and reporting such incidents.</p></div>
+                    <div class="notification"><p>Question 10: How can I maintain a good work-life balance in the banking industry?</p></div>
+                    <div class="notification"><p>Answer: Maintaining a healthy work-life balance is important. Make sure to prioritize self-care, set boundaries between work and personal life, and engage in activities outside of work that help you relax and recharge. Effective time management and communication skills can also contribute to a better work-life balance.</p></div>
+                </div>
+            </div>`;
+        }
+
+
+        function viewNotifications() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+                    <div class="user-profile">
+                        <img src="abboud.jpg" alt="User avatar">
+                        <h2>Welcome, Banker!</h2>
+                    </div>
+                    <div class="nono">
+                        <h3>NOTIFICATIONS</h3>
+                        <div class="notification"><p>Reminder: Please update your contact information in our records.</p></div>
+                        <div class="notification"><p>Important Notice: Scheduled maintenance on our online banking platform on June 10th, 10:00 PM - 12:00 AM.</p></div>
+                        <div class="notification"><p>New Feature: Introducing mobile check deposits for convenient banking.</p></div>
+                        <div class="notification"><p>Security Alert: Be cautious of phishing emails requesting personal information.</p></div>
+                        <div class="notification"><p>Upcoming Event: Join us for our customer appreciation day on June 15th.</p></div>
+                        <div class="notification"><p>Holiday Schedule: Please note our operating hours for the upcoming holidays.</p></div>
+                        <img src="notifications.jpg" alt="Notifications Image">
+                    </div>`;
+        }
+        function showReports() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+ <div class="bobo">
+                        <img src="abboud.jpg" alt="User avatar">
+                        <h2>Welcome, Banker!</h2>
+                    </div>
+            <div id="credit-card-reports-section" class="reports-section">
+                <h3>Credit Card Fraud/Loss Reports</h3>
+
+                <div class="table-wrapper">
+                    <table class="complaints-table">
+                        <thead>
+                            <tr>
+                                <th>Client Number</th>
+                                <th>Account Type</th>
+                                <th>Complaint</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1234</td>
+                                <td>Savings Account</td>
+                                <td>Unauthorized transactions on the credit card</td>
+                                <td class="status-cell"><span class="status-circle handled"></span> Handled</td>
+                                <td class="action-cell" colspan="2">
+                                    <button onclick="showPopup('Freeze card', 'The case has been sent to the admin for freezing the card.')">Freeze card</button>
+                                    <button onclick="showPopup('Unfreeze card', 'The case has been sent to the admin for unfreezing the card.')">Unfreeze card</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5678</td>
+                                <td>Credit Card Account</td>
+                                <td>Lost credit card</td>
+                                <td class="status-cell"><span class="status-circle unhandled"></span> Unhandled</td>
+                                <td class="action-cell" colspan="2">
+                                    <button onclick="showPopup('Freeze card', 'The case has been sent to the admin for freezing the card.')">Freeze card</button>
+                                    <button onclick="showPopup('Unfreeze card', 'The case has been sent to the admin for unfreezing the card.')">Unfreeze card</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Open Credit Card Requests</h3>
+
+                <div class="table-wrapper">
+                    <table class="complaints-table">
+                        <thead>
+                            <tr>
+                                <th>Client Number</th>
+                                <th>Card Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1234</td>
+                                <td>Credit</td>
+                                <td class="action-cell" colspan="2">
+                                    <button onclick="showPopup('Card Accepted','')">Accept</button>
+                                    <button onclick="showPopup('Card Rejected','')">Reject</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5678</td>
+                                <td>Debit</td>
+                                <td class="action-cell" colspan="2">
+                                    <button onclick="showPopup('Card Accepted','')">Accept</button>
+                                    <button onclick="showPopup('Card Rejected','')">Reject</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>`;
+        }
+
+
+
+
+        function showTaskCreationForm() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+             <div class="user-profile">
+                        <img src="abboud.jpg" alt="User avatar">
+                        <h2>Welcome, Banker!</h2>
+                    </div>
+            <div class="taskkk">
+                <h3>Create Task</h3>
+                <form onsubmit="event.preventDefault(); createTask();">
+                    <label for="task-description">Task Description:</label>
+                    <input type="text" id="task-description" name="task-description" required><br><br>
+                    <label for="task-assignee">Assignee (Please include Employee name and ID):</label>
+                    <input type="text" id="task-assignee" name="task-assignee" required><br><br>
+                    <label for="due-date">Due Date:</label>
+                    <input type="date" id="due-date" name="due-date" required><br><br>
+                    <label for="task-id">Task ID:</label>
+                    <input type="text" id="task-id" name="task-id" required><br><br>
+                    <input type="submit" value="Assign Task">
+                </form>
+            </div>`;
+        }
+
+        function createTask() {
+            var taskDescription = document.getElementById("task-description").value;
+            var dueDate = document.getElementById("due-date").value;
+            var taskId = document.getElementById("task-id").value;
+            var assignee = document.getElementById("task-assignee").value;
+
+            // TODO: Perform any desired actions with the task information
+            // For example, you can send the task data to a server or update a task list
+
+            var confirmationMessage = `Task created successfully:\n\nTask Description: ${taskDescription}\nAssignee: ${assignee}\nDue Date: ${dueDate}\nTask ID: ${taskId}`;
+            alert(confirmationMessage);
+
+            // Reset or update the dashboard
+            showTaskCreationForm();
+        }
+        function viewPendingTasks() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+ <div class="boudi">
+                        <img src="abboud.jpg" alt="User avatar">
+                        <h2>Welcome, Banker!</h2>
+                    </div>
+                <div class="abboudii">
+                    <h3>Pending Tasks</h3>
+                    <div class="task-card">
+                        <h4 class="task-title">Review Loan Application</h4>
+                        <p class="task-description">Please review the loan application submitted by Mr. Smith for a mortgage.</p>
+                        <p class="task-due">Due: May 31, 2023</p>
+                    </div>
+                    <div class="task-card">
+                        <h4 class="task-title">Analyze Investment Portfolio</h4>
+                        <p class="task-description">Analyze and assess the investment portfolio of Ms. Johnson to provide recommendations for diversification.</p>
+                        <p class="task-due">Due: June 3, 2023</p>
+                    </div>
+                    <div class="task-card">
+                        <h4 class="task-title">Prepare Financial Report</h4>
+                        <p class="task-description">Prepare a comprehensive financial report summarizing the financial performance of the bank for the past quarter</p>
+                        <p class="task-due">Due: June 7, 2023</p>
+                    </div>
+                </div>`;
+
+
+
+        }
+        function viewReportForm() {
+            var dashboardSection = document.getElementById("dashboard-section");
+            dashboardSection.innerHTML = `
+        <div class="user-profile">
+          <img src="abboud.jpg" alt="User Avatar">
+          <h2>Welcome, Banker!</h2>
+        </div>
+        <div class="a-f">
+          <h3>REPORT AN ISSUE</h3>
+          <div class="fd">
+            <label for="report-type">Report Type:</label>
+            <select id="report-type">
+              <option value="">-- Select Report Type --</option>
+              <optgroup label="Technical Issues">
+                <option value="Bug">Bug</option>
+                <option value="Performance Issue">Performance Issue</option>
+                <option value="Security Concern">Security Concern</option>
+              </optgroup>
+              <optgroup label="Feature Requests">
+                <option value="Feature Request">Feature Request</option>
+                <option value="Usability Feedback">Usability Feedback</option>
+              </optgroup>
+              <optgroup label="Other">
+                <option value="Other">Other</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="f-f">
+            <label for="issue-description">Issue Description:</label>
+            <textarea id="issue-description" placeholder="Describe the issue"></textarea>
+          </div>
+          <button onclick="submitReport()">Submit</button>
+        </div>`;
+        }
+
+
+    </script>
 </body>
 </html>
